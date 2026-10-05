@@ -7,19 +7,20 @@ const needs = [
   "Social media marketing",
   "Business cards",
   "Show branding and merchandise",
-  "Agri Track Farm",
+  "Agri Scale Farm",
   "I’m not sure yet",
 ];
 
 export default function Contact() {
   const [params] = useSearchParams();
-  const requested = params.get("need");
+  const aliases = { "Agri Track Farm": "Agri Scale Farm" };
+  const requested = aliases[params.get("need")] ?? params.get("need");
   const initialNeed = needs.includes(requested) ? requested : "";
   const [need, setNeed] = useState(initialNeed);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
   const navigate = useNavigate();
-  usePageTitle("Start a project");
+  usePageTitle("Request a consultation");
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -49,13 +50,13 @@ export default function Contact() {
     <section className="section contact" id="contact">
       <div className="wrap contact-grid">
         <div>
-          <p className="kicker">Start a project</p>
-          <h1>Tell us about the place.</h1>
-          <p className="intro">A few sentences is enough. We will reply with a clear next step and, when we know the size of the job, a plain quote.</p>
+          <p className="kicker">Consultation</p>
+          <h1>Tell us about the business.</h1>
+          <p className="intro">A short note is sufficient. We will reply with a clear next step and, once the scope is understood, a written quotation.</p>
           <ol className="next-list">
-            <li><span>1</span> We read what you sent.</li>
-            <li><span>2</span> We ask only if something important is missing.</li>
-            <li><span>3</span> You get a quote and a timeline in writing.</li>
+            <li><span>1</span> We review your enquiry.</li>
+            <li><span>2</span> We follow up only if essential information is missing.</li>
+            <li><span>3</span> You receive a quotation and a timeline in writing.</li>
           </ol>
         </div>
         <form className="form" name="farm-enquiry" method="POST" onSubmit={onSubmit}>
@@ -90,11 +91,11 @@ export default function Contact() {
               </select>
             </div>
             <div className="field full">
-              <label htmlFor="message">A few sentences</label>
-              <textarea id="message" name="message" required placeholder="What you need, where you are, and whether this is for the farm, a show, or the flock records." />
+              <label htmlFor="message">Project details</label>
+              <textarea id="message" name="message" required placeholder="The work you need, your location, and whether this is for the business, a show, or livestock records." />
             </div>
           </div>
-          <button className="button" type="submit" disabled={sending}>{sending ? "Sending…" : "Send the note"}</button>
+          <button className="button" type="submit" disabled={sending}>{sending ? "Sending…" : "Send enquiry"}</button>
           {error && <p className="note">{error}</p>}
           {!error && <p className="note">We use this only to reply to you.</p>}
         </form>
