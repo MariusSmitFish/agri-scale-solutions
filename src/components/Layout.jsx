@@ -18,6 +18,7 @@ const linksAfter = [
   { to: "/#who", label: "Who we help" },
   { to: "/#process", label: "Process" },
   { to: "/#questions", label: "Questions" },
+  { to: "/contact", label: "Contact" },
 ];
 
 function ProductsMenu({ open, setOpen, pathname }) {
@@ -127,7 +128,6 @@ export default function Layout() {
             {linksAfter.map((link) => (
               <NavItem key={link.to} to={link.to} hash={location.hash} end={link.end}>{link.label}</NavItem>
             ))}
-            <NavLink to="/contact">Contact</NavLink>
           </nav>
         </div>
       </footer>
