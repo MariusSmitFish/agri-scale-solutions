@@ -178,7 +178,8 @@ section[id] {
   font-size: 0.98rem;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a.active:not(.button) {
   color: var(--clay);
 }
 
@@ -469,10 +470,20 @@ section[id] {
   padding: 5.5rem 0;
 }
 
+.section h1,
 .section h2 {
   font-size: clamp(2.1rem, 4vw, 3.35rem);
   line-height: 1.08;
   max-width: 16ch;
+}
+
+.kicker a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kicker a:hover {
+  text-decoration: underline;
 }
 
 .intro {
@@ -567,7 +578,8 @@ section[id] {
 }
 
 .feature-list li {
-  background: var(--paper);
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.95rem;
 }
@@ -602,12 +614,19 @@ section[id] {
   margin-top: 2.25rem;
 }
 
-.who-grid article {
+.who-grid article,
+.who-grid a {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 1.15rem 1.1rem 1.2rem;
   min-height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.who-grid a:hover {
+  border-color: var(--leaf);
 }
 
 .who-grid h3 {
@@ -738,8 +757,10 @@ section[id] {
   color: var(--sand);
 }
 
+.contact h1,
 .contact h2 {
   max-width: 14ch;
+  color: var(--white);
 }
 
 .contact-grid {
