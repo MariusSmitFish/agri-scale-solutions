@@ -1014,11 +1014,45 @@ section[id] {
   color: var(--white);
 }
 
+.people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.person {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(230, 240, 234, 0.16);
+  border-radius: 18px;
+  padding: 1.25rem 1.3rem 1.4rem;
+}
+
+.person h2 {
+  max-width: none;
+  margin-bottom: 0.85rem;
+  font-size: 1.7rem;
+}
+
+.person a {
+  display: block;
+  width: fit-content;
+  margin-top: 0.25rem;
+  color: var(--on-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.person a:hover {
+  color: var(--sand);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
   gap: 3rem;
   align-items: start;
+  margin-top: 3.5rem;
 }
 
 .contact .intro,
@@ -1741,6 +1775,7 @@ textarea:focus {
 
   .who-grid,
   .offer,
+  .people,
   .form-grid,
   .service,
   .feature-list {

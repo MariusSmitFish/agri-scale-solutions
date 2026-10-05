@@ -2,6 +2,21 @@ import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import usePageTitle from "./usePageTitle";
 
+const people = [
+  {
+    name: "Marius Smit",
+    phone: "072 604 5165",
+    tel: "+27726045165",
+    email: "mariussmitb@gmail.com",
+  },
+  {
+    name: "Rihandri Smit",
+    phone: "071 687 7657",
+    tel: "+27716877657",
+    email: "rihandrismit@gmail.com",
+  },
+];
+
 const needs = [
   "A website",
   "Social media marketing",
@@ -20,7 +35,7 @@ export default function Contact() {
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
   const navigate = useNavigate();
-  usePageTitle("Request a consultation");
+  usePageTitle("Contact us");
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -48,11 +63,22 @@ export default function Contact() {
 
   return (
     <section className="section contact" id="contact">
-      <div className="wrap contact-grid">
+      <div className="wrap">
+        <p className="kicker">Contact</p>
+        <h1>Contact us</h1>
+        <p className="intro">Call or email either of us. A short note is sufficient. We will reply with a clear next step and, once the scope is understood, a written quotation.</p>
+        <div className="people">
+          {people.map((person) => (
+            <article className="person" key={person.email}>
+              <h2>{person.name}</h2>
+              <a href={`tel:${person.tel}`}>{person.phone}</a>
+              <a href={`mailto:${person.email}`}>{person.email}</a>
+            </article>
+          ))}
+        </div>
+        <div className="contact-grid">
         <div>
-          <p className="kicker">Consultation</p>
-          <h1>Tell us about the business.</h1>
-          <p className="intro">A short note is sufficient. We will reply with a clear next step and, once the scope is understood, a written quotation.</p>
+          <h2>Send an enquiry</h2>
           <ol className="next-list">
             <li><span>1</span> We review your enquiry.</li>
             <li><span>2</span> We follow up only if essential information is missing.</li>
@@ -99,6 +125,7 @@ export default function Contact() {
           {error && <p className="note">{error}</p>}
           {!error && <p className="note">We use this only to reply to you.</p>}
         </form>
+        </div>
       </div>
     </section>
   );
