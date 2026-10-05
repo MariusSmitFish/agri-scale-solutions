@@ -1,13 +1,17 @@
 import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Services from "./pages/Services";
-import ServicePage from "./pages/ServicePage";
-import AgriTrack from "./pages/AgriTrack";
+import Products from "./pages/Products";
+import ProductPage from "./pages/ProductPage";
 import Contact from "./pages/Contact";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
+
+function ServiceRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/products/${slug}`} replace />;
+}
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -33,9 +37,12 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
-          <Route path="services/:slug" element={<ServicePage />} />
-          <Route path="agri-track" element={<AgriTrack />} />
+          <Route path="services" element={<Navigate to="/products" replace />} />
+          <Route path="services/:slug" element={<ServiceRedirect />} />
+          <Route path="products" element={<Products />} />
+          <Route path="products/:slug" element={<ProductPage />} />
+          <Route path="agri-scale-farm" element={<Navigate to="/products/agri-scale-farm" replace />} />
+          <Route path="agri-track" element={<Navigate to="/products/agri-scale-farm" replace />} />
           <Route path="contact" element={<Contact />} />
           <Route path="thank-you" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
