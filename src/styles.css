@@ -1588,6 +1588,63 @@ textarea:focus {
   font-size: 0.95rem;
 }
 
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.15rem 1.1rem 1.2rem;
+}
+
+.plan .kicker {
+  margin-bottom: 0.35rem;
+}
+
+.plan-price {
+  margin: 0 0 0.45rem;
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.plan-price span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.plan > p:last-of-type {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.plan ul {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan li {
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
 .capability-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1638,6 +1695,7 @@ textarea:focus {
   .platform-grid,
   .platform-phone,
   .capability-grid,
+  .plan-grid,
   .process.cols-3,
   .product-index a {
     grid-template-columns: 1fr;

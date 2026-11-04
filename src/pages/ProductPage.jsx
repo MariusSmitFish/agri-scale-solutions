@@ -71,6 +71,33 @@ export default function ProductPage() {
           );
         }
 
+        if (section.plans) {
+          return (
+            <section className="section band" key={section.title}>
+              <div className="wrap">
+                <p className="kicker">{section.kicker}</p>
+                <h2>{section.title}</h2>
+                {section.intro && <p className="intro">{section.intro}</p>}
+                <ul className="plan-grid">
+                  {section.plans.map((plan) => (
+                    <li className="plan" key={plan.name}>
+                      <p className="kicker">{plan.name}</p>
+                      <p className="plan-price">
+                        {plan.price}
+                        {plan.period && <span>{plan.period}</span>}
+                      </p>
+                      <p>{plan.summary}</p>
+                      <ul>
+                        {plan.limits.map((item) => <li key={item}>{item}</li>)}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          );
+        }
+
         if (section.items) {
           return (
             <section className="section" key={section.title}>

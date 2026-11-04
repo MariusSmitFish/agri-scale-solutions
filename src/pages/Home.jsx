@@ -139,7 +139,7 @@ export default function Home() {
           <div>
             <p className="kicker">Working together</p>
             <h2>One standard of work.</h2>
-            <p className="intro">The website, the card, and the banner should read as one business. Pricing is quoted per project, because business cards and a full show stand are different scopes. After the consultation you receive a written quotation covering what is included and how long it will take.</p>
+            <p className="intro">The website, the card, and the banner should read as one business. Print and websites are quoted per project, because a set of cards and a full show stand are different scopes. Agri Scale Farm is a yearly package, with the limits on its page. After a consultation you receive a written quotation covering what is included and how long it will take.</p>
           </div>
           <ul className="checklist">
             {included.map((item) => (
@@ -162,7 +162,7 @@ export default function Home() {
             ))}
             <details>
               <summary>What is Agri Scale Farm?</summary>
-              <p>It is the livestock management system: bloodlines, camps, breeding, weights, photographs, and inoculations, on the web and as a mobile app. See the <Link to="/products/agri-scale-farm">Agri Scale Farm page</Link>, or open <a href="https://agriscalefarm.netlify.app">agriscalefarm.netlify.app</a>.</p>
+              <p>It is the livestock management system: the herd, stamboek, family trees, breeding and births, health, camps, analytics, and backups, on the web and on the phone. Farms choose Entry, Intermediate, or Unlimited for the year. See the <Link to="/products/agri-scale-farm">Agri Scale Farm page</Link>, or open <a href="https://agriscalefarm.netlify.app">agriscalefarm.netlify.app</a>.</p>
             </details>
           </div>
         </div>
